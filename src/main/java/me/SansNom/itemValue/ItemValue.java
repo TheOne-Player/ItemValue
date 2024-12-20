@@ -1,24 +1,25 @@
 package me.SansNom.itemValue;
 
-import me.clip.placeholderapi.PlaceholderAPI;
+import me.SansNom.itemValue.commands.BalanceCommand;
+import me.SansNom.itemValue.commands.BaltopCommand;
 import me.SansNom.itemValue.commands.SetItemValueCommand;
 import me.SansNom.itemValue.listeners.PlayerListener;
-import me.SansNom.itemValue.utils.NBTUtils;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 public class ItemValue extends JavaPlugin {
-
     @Override
     public void onEnable() {
         // Register commands
-        getCommand("setitemvalue").setExecutor(new commands.SetItemValueCommand(this));
+        this.getCommand("setitemvalue").setExecutor(new SetItemValueCommand(this));
+        this.getCommand("baltop").setExecutor(new BaltopCommand(this));
+        this.getCommand("balance").setExecutor(new BalanceCommand(this));
 
-        // Register the PlaceholderAPI placeholders
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            new InventoryValuePlaceholder(this);
-            new EnderchestValuePlaceholder(this);
-        }
+        // Register listeners
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
     }
 }
