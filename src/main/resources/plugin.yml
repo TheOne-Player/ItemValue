@@ -1,6 +1,6 @@
 name: ItemValue
 version: '0.0.1'
-main: me.SansNom.itemValue.ItemValuePlugin
+main: me.SansNom.itemValue.ItemValue
 api-version: '1.21'
 prefix: ItemValue
 authors: [SansNom]
