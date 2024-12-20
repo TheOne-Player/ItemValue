@@ -1,0 +1,17 @@
+name: ItemValue
+version: '0.0.1'
+main: me.SansNom.itemValue.ItemValuePlugin
+api-version: '1.21'
+prefix: ItemValue
+authors: [SansNom]
+description: Sets values to items, and calculates values of players' inventories and enderchests.
+website: https://www.sanscraft.top
+commands:
+  setitemvalue:
+    description: Set the value of items with a specific NBT tag.
+    usage: /setitemvalue <value>
+    aliases: [ivs, siv]
+    permission: itemvalueplugin.set
+    permission-message: You do not have permission to use this command.
+dependencies:
+  - PlaceholderAPI
